@@ -1,0 +1,804 @@
+fileFormatVersion: 2
+guid: a14d9f08edd23344ebd7cc82508e7f54
+timeCreated: 1512529344
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: deck_of_pixel_cards_by_poptarts_at_2am_0
+    21300002: deck_of_pixel_cards_by_poptarts_at_2am_1
+    21300004: deck_of_pixel_cards_by_poptarts_at_2am_2
+    21300006: deck_of_pixel_cards_by_poptarts_at_2am_3
+    21300008: deck_of_pixel_cards_by_poptarts_at_2am_4
+    21300010: deck_of_pixel_cards_by_poptarts_at_2am_5
+    21300012: deck_of_pixel_cards_by_poptarts_at_2am_6
+    21300014: deck_of_pixel_cards_by_poptarts_at_2am_7
+    21300016: deck_of_pixel_cards_by_poptarts_at_2am_8
+    21300018: deck_of_pixel_cards_by_poptarts_at_2am_9
+    21300020: deck_of_pixel_cards_by_poptarts_at_2am_10
+    21300022: deck_of_pixel_cards_by_poptarts_at_2am_11
+    21300024: deck_of_pixel_cards_by_poptarts_at_2am_12
+    21300026: deck_of_pixel_cards_by_poptarts_at_2am_13
+    21300028: deck_of_pixel_cards_by_poptarts_at_2am_14
+    21300030: deck_of_pixel_cards_by_poptarts_at_2am_15
+    21300032: deck_of_pixel_cards_by_poptarts_at_2am_16
+    21300034: deck_of_pixel_cards_by_poptarts_at_2am_17
+    21300036: deck_of_pixel_cards_by_poptarts_at_2am_18
+    21300038: deck_of_pixel_cards_by_poptarts_at_2am_19
+    21300040: deck_of_pixel_cards_by_poptarts_at_2am_20
+    21300042: deck_of_pixel_cards_by_poptarts_at_2am_21
+    21300044: deck_of_pixel_cards_by_poptarts_at_2am_22
+    21300046: deck_of_pixel_cards_by_poptarts_at_2am_23
+    21300048: deck_of_pixel_cards_by_poptarts_at_2am_24
+    21300050: deck_of_pixel_cards_by_poptarts_at_2am_25
+    21300052: deck_of_pixel_cards_by_poptarts_at_2am_26
+    21300054: deck_of_pixel_cards_by_poptarts_at_2am_27
+    21300056: deck_of_pixel_cards_by_poptarts_at_2am_28
+    21300058: deck_of_pixel_cards_by_poptarts_at_2am_29
+    21300060: deck_of_pixel_cards_by_poptarts_at_2am_30
+    21300062: deck_of_pixel_cards_by_poptarts_at_2am_31
+    21300064: deck_of_pixel_cards_by_poptarts_at_2am_32
+    21300066: deck_of_pixel_cards_by_poptarts_at_2am_33
+    21300068: deck_of_pixel_cards_by_poptarts_at_2am_34
+    21300070: deck_of_pixel_cards_by_poptarts_at_2am_35
+    21300072: deck_of_pixel_cards_by_poptarts_at_2am_36
+    21300074: deck_of_pixel_cards_by_poptarts_at_2am_37
+    21300076: deck_of_pixel_cards_by_poptarts_at_2am_38
+    21300078: deck_of_pixel_cards_by_poptarts_at_2am_39
+    21300080: deck_of_pixel_cards_by_poptarts_at_2am_40
+    21300082: deck_of_pixel_cards_by_poptarts_at_2am_41
+    21300084: deck_of_pixel_cards_by_poptarts_at_2am_42
+    21300086: deck_of_pixel_cards_by_poptarts_at_2am_43
+    21300088: deck_of_pixel_cards_by_poptarts_at_2am_44
+    21300090: deck_of_pixel_cards_by_poptarts_at_2am_45
+    21300092: deck_of_pixel_cards_by_poptarts_at_2am_46
+    21300094: deck_of_pixel_cards_by_poptarts_at_2am_47
+    21300096: deck_of_pixel_cards_by_poptarts_at_2am_48
+    21300098: deck_of_pixel_cards_by_poptarts_at_2am_49
+    21300100: deck_of_pixel_cards_by_poptarts_at_2am_50
+    21300102: deck_of_pixel_cards_by_poptarts_at_2am_51
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 36
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 157
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 157
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_2
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 157
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_3
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 157
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_4
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 157
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_5
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 157
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_6
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 157
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_7
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 157
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_8
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 157
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_9
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 157
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_10
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 157
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_11
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 157
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_12
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 157
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_13
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 105
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_14
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 105
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_15
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 105
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_16
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 105
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_17
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 105
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_18
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 105
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_19
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 105
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_20
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 105
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_21
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 105
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_22
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 105
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_23
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 105
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_24
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 105
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_25
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 105
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_26
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 53
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_27
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 53
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_28
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 53
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_29
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 53
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_30
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 53
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_31
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 53
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_32
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 53
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_33
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 53
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_34
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 53
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_35
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 53
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_36
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 53
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_37
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 53
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_38
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 53
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_39
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_40
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 1
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_41
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_42
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 1
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_43
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 1
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_44
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 1
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_45
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 1
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_46
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 1
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_47
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 1
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_48
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 1
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_49
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 1
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_50
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 1
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: deck_of_pixel_cards_by_poptarts_at_2am_51
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 1
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
