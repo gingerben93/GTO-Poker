@@ -51,69 +51,12 @@ public class HandTracker : MonoBehaviour {
 
     //set of community cards
     List<Card> Board = new List<Card>();
-    List<Card> Player1 = new List<Card>();
-    List<Card> Player1BestHand = new List<Card>();
 
-    ////create all cards for deck
-    ////spades
-    //Card S2 = new Card(Number.Two, Suit.Spades);
-    //Card S3 = new Card(Number.Three, Suit.Spades);
-    //Card S4 = new Card(Number.Four, Suit.Spades);
-    //Card S5 = new Card(Number.Five, Suit.Spades);
-    //Card S6 = new Card(Number.Six, Suit.Spades);
-    //Card S7 = new Card(Number.Seven, Suit.Spades);
-    //Card S8 = new Card(Number.Eight, Suit.Spades);
-    //Card S9 = new Card(Number.Nine, Suit.Spades);
-    //Card S10 = new Card(Number.Ten, Suit.Spades);
-    //Card Sj = new Card(Number.Jack, Suit.Spades);
-    //Card Sq = new Card(Number.Queen, Suit.Spades);
-    //Card Sk = new Card(Number.King, Suit.Spades);
-    //Card Sa = new Card(Number.Ace, Suit.Spades);
+    //player cards
+    List<List<Card>> playerCards = new List<List<Card>>();
 
-    ////clubs
-    //Card C2 = new Card(Number.Two, Suit.Clubs);
-    //Card C3 = new Card(Number.Three, Suit.Clubs);
-    //Card C4 = new Card(Number.Four, Suit.Clubs);
-    //Card C5 = new Card(Number.Five, Suit.Clubs);
-    //Card C6 = new Card(Number.Six, Suit.Clubs);
-    //Card C7 = new Card(Number.Seven, Suit.Clubs);
-    //Card C8 = new Card(Number.Eight, Suit.Clubs);
-    //Card C9 = new Card(Number.Nine, Suit.Clubs);
-    //Card C10 = new Card(Number.Ten, Suit.Clubs);
-    //Card Cj = new Card(Number.Jack, Suit.Clubs);
-    //Card Cq = new Card(Number.Queen, Suit.Clubs);
-    //Card Ck = new Card(Number.King, Suit.Clubs);
-    //Card Ca = new Card(Number.Ace, Suit.Clubs);
+    //List<Card> Player1 = new List<Card>();
 
-    ////HEARTS
-    //Card H2 = new Card(Number.Two, Suit.Hearts);
-    //Card H3 = new Card(Number.Three, Suit.Hearts);
-    //Card H4 = new Card(Number.Four, Suit.Hearts);
-    //Card H5 = new Card(Number.Five, Suit.Hearts);
-    //Card H6 = new Card(Number.Six, Suit.Hearts);
-    //Card H7 = new Card(Number.Seven, Suit.Hearts);
-    //Card H8 = new Card(Number.Eight, Suit.Hearts);
-    //Card H9 = new Card(Number.Nine, Suit.Hearts);
-    //Card H10 = new Card(Number.Ten, Suit.Hearts);
-    //Card Hj = new Card(Number.Jack, Suit.Hearts);
-    //Card Hq = new Card(Number.Queen, Suit.Hearts);
-    //Card Hk = new Card(Number.King, Suit.Hearts);
-    //Card Ha = new Card(Number.Ace, Suit.Hearts);
-
-    ////Diamons
-    //Card D2 = new Card(Number.Two, Suit.Diamonds);
-    //Card D3 = new Card(Number.Three, Suit.Diamonds);
-    //Card D4 = new Card(Number.Four, Suit.Diamonds);
-    //Card D5 = new Card(Number.Five, Suit.Diamonds);
-    //Card D6 = new Card(Number.Six, Suit.Diamonds);
-    //Card D7 = new Card(Number.Seven, Suit.Diamonds);
-    //Card D8 = new Card(Number.Eight, Suit.Diamonds);
-    //Card D9 = new Card(Number.Nine, Suit.Diamonds);
-    //Card D10 = new Card(Number.Ten, Suit.Diamonds);
-    //Card Dj = new Card(Number.Jack, Suit.Diamonds);
-    //Card Dq = new Card(Number.Queen, Suit.Diamonds);
-    //Card Dk = new Card(Number.King, Suit.Diamonds);
-    //Card Da = new Card(Number.Ace, Suit.Diamonds);
 
     // Use this for initialization
     void Start ()
@@ -127,156 +70,10 @@ public class HandTracker : MonoBehaviour {
             }
         }
 
-        ////ADD SPADES    
-        //deck.Add(S2);
-        //deck.Add(S3);
-        //deck.Add(S4);
-        //deck.Add(S5);
-        //deck.Add(S6);
-        //deck.Add(S7);
-        //deck.Add(S8);
-        //deck.Add(S9);
-        //deck.Add(S10);
-        //deck.Add(Sj);
-        //deck.Add(Sq);
-        //deck.Add(Sk);
-        //deck.Add(Sa);
+        MakeBoard();
 
-        ////ADD Clubs    
-        //deck.Add(C2);
-        //deck.Add(C3);
-        //deck.Add(C4);
-        //deck.Add(C5);
-        //deck.Add(C6);
-        //deck.Add(C7);
-        //deck.Add(C8);
-        //deck.Add(C9);
-        //deck.Add(C10);
-        //deck.Add(Cj);
-        //deck.Add(Cq);
-        //deck.Add(Ck);
-        //deck.Add(Ca);
-
-        ////ADD HEARTS
-        //deck.Add(H2);
-        //deck.Add(H3);
-        //deck.Add(H4);
-        //deck.Add(H5);
-        //deck.Add(H6);
-        //deck.Add(H7);
-        //deck.Add(H8);
-        //deck.Add(H9);
-        //deck.Add(H10);
-        //deck.Add(Hj);
-        //deck.Add(Hq);
-        //deck.Add(Hk);
-        //deck.Add(Ha);
-
-        ////ADD DIAMONDS
-        //deck.Add(D2);
-        //deck.Add(D3);
-        //deck.Add(D4);
-        //deck.Add(D5);
-        //deck.Add(D6);
-        //deck.Add(D7);
-        //deck.Add(D8);
-        //deck.Add(D9);
-        //deck.Add(D10);
-        //deck.Add(Dj);
-        //deck.Add(Dq);
-        //deck.Add(Dk);
-        //deck.Add(Da);
-
-        //player cards
-        //card1
-        Card player1card1 = deck[Random.Range(0, deck.Count)];
-        deck.Remove(player1card1);
-        //load image 1
-        ImageNumber = (int)player1card1.value + (int)player1card1.suit * 13;
-        cardImage = Resources.Load(pathway + ImageNumber.ToString()) as GameObject;
-        prefab = Instantiate(cardimagetest);
-        prefab.GetComponent<SpriteRenderer>().sprite = cardImage.GetComponent<SpriteRenderer>().sprite;
-        prefab.transform.position = new Vector3(0, -3, 0);
-
-        //card2
-        Card player1card2 = deck[Random.Range(0, deck.Count)];
-        deck.Remove(player1card2);
-        //load image 2
-        ImageNumber = (int)player1card2.value + (int)player1card2.suit * 13;
-        cardImage = Resources.Load(pathway + ImageNumber.ToString()) as GameObject;
-        prefab = Instantiate(cardimagetest);
-        prefab.GetComponent<SpriteRenderer>().sprite = cardImage.GetComponent<SpriteRenderer>().sprite;
-        prefab.transform.position = new Vector3(1, -3, 0);
-
-        Debug.Log(player1card1.value + " " + player1card1.suit);
-        Debug.Log(player1card2.value + " " + player1card2.suit);
-
-        Player1.Add(player1card1);
-        Player1.Add(player1card2);
-        
-
-
-        //rivers cards
-        Card river1 = deck[Random.Range(0, deck.Count)];
-        deck.Remove(river1);
-        ImageNumber = (int)river1.value + (int)river1.suit * 13;
-        cardImage = Resources.Load(pathway + ImageNumber.ToString()) as GameObject;
-        prefab = Instantiate(cardimagetest);
-        prefab.GetComponent<SpriteRenderer>().sprite = cardImage.GetComponent<SpriteRenderer>().sprite;
-        prefab.transform.position = new Vector3(0, 0, 0);
-
-        Card river2 = deck[Random.Range(0, deck.Count)];
-        deck.Remove(river2);
-        ImageNumber = (int)river2.value + (int)river2.suit * 13;
-        cardImage = Resources.Load(pathway + ImageNumber.ToString()) as GameObject;
-        prefab = Instantiate(cardimagetest);
-        prefab.GetComponent<SpriteRenderer>().sprite = cardImage.GetComponent<SpriteRenderer>().sprite;
-        prefab.transform.position = new Vector3(1, 0, 0);
-
-        Card river3 = deck[Random.Range(0, deck.Count)];
-        deck.Remove(river3);
-        ImageNumber = (int)river3.value + (int)river3.suit * 13;
-        cardImage = Resources.Load(pathway + ImageNumber.ToString()) as GameObject;
-        prefab = Instantiate(cardimagetest);
-        prefab.GetComponent<SpriteRenderer>().sprite = cardImage.GetComponent<SpriteRenderer>().sprite;
-        prefab.transform.position = new Vector3(2, 0, 0);
-
-        //add to board
-        Board.Add(river1);
-        Board.Add(river2);
-        Board.Add(river3);
-
-        Debug.Log("Flop");
-        Debug.Log(river1.value + " " + river1.suit);
-        Debug.Log(river2.value + " " + river2.suit);
-        Debug.Log(river3.value + " " + river3.suit);
-
-        //turn card
-        Card turn = deck[Random.Range(0, deck.Count)];
-        deck.Remove(turn);
-        Board.Add(turn);
-        ImageNumber = (int)turn.value + (int)turn.suit * 13;
-        cardImage = Resources.Load(pathway + ImageNumber.ToString()) as GameObject;
-        prefab = Instantiate(cardimagetest);
-        prefab.GetComponent<SpriteRenderer>().sprite = cardImage.GetComponent<SpriteRenderer>().sprite;
-        prefab.transform.position = new Vector3(3, 0, 0);
-
-        Debug.Log("Turn");
-        Debug.Log(turn.value + " " + turn.suit);
-
-        //river card
-        Card river = deck[Random.Range(0, deck.Count)];
-        deck.Remove(river);
-        Board.Add(river);
-        ImageNumber = (int)river.value + (int)river.suit * 13;
-        cardImage = Resources.Load(pathway + ImageNumber.ToString()) as GameObject;
-        prefab = Instantiate(cardimagetest);
-        prefab.GetComponent<SpriteRenderer>().sprite = cardImage.GetComponent<SpriteRenderer>().sprite;
-        prefab.transform.position = new Vector3(4, 0, 0);
-
-        Debug.Log("River");
-        Debug.Log(river.value + " " + river.suit);
-        //Debug.Log(river.value + " " + (int)river.suit);
+        //enter number of players
+        NumberPlayers(8);
 
         //check who won
         WhatIsHand();
@@ -291,7 +88,25 @@ public class HandTracker : MonoBehaviour {
 		
 	}
 
-    public void FindFlush()
+    public void MakeBoard()
+    {
+        for(int x = 0; x < 5; x++)
+        {
+            //turn card
+            Card newCard = deck[Random.Range(0, deck.Count)];
+            deck.Remove(newCard);
+            Board.Add(newCard);
+            ImageNumber = (int)newCard.value + (int)newCard.suit * 13;
+            cardImage = Resources.Load(pathway + ImageNumber.ToString()) as GameObject;
+            prefab = Instantiate(cardimagetest);
+            prefab.GetComponent<SpriteRenderer>().sprite = cardImage.GetComponent<SpriteRenderer>().sprite;
+            prefab.transform.position = new Vector3(x, 0, 0);
+
+            Debug.Log("Card " + x + " is " + newCard.value + " " + newCard.suit);
+        }
+    }
+
+    public List<Card> FindFlush()
     {
         List<List<Card>> flushes = new List<List<Card>>();
         flushes.Add(new List<Card>());
@@ -320,129 +135,154 @@ public class HandTracker : MonoBehaviour {
             }
         }
 
-        for (int x = 0; x < flushes.Count; x++)
+        ////print cards in flushes
+        //for (int x = 0; x < flushes.Count; x++)
+        //{
+        //    Debug.Log("there are " + flushes[x].Count + " " + (Suit)x);
+        //}
+
+        foreach(List<Card> listCards in flushes)
         {
-            Debug.Log("there are " + flushes[x].Count + " " + (Suit)x);
+            if(listCards.Count >= 5)
+            {
+                return listCards;
+            }
         }
 
-        ////////////////////
+        return new List<Card>();
 
-        ////check for flush
-        //int FlushCounter;
-
-        //foreach (Suit suit in Suit.GetValues(typeof(Suit)))
-        //{
-        //    FlushCounter = 0;
-        //    foreach (Card c in Board)
-        //    {
-        //        //Debug.Log(c.value + " " + c.suit);
-        //        if (suit == c.suit)
-        //        {
-        //            if (Player1BestHand.Count > 0)
-        //            {
-        //                if ((int)c.value < (int)Player1BestHand[0].value)
-        //                {
-        //                    Player1BestHand.Insert(0, c);
-        //                }
-        //                else
-        //                {
-        //                    Player1BestHand.Add(c);
-        //                }
-        //            }
-        //            else
-        //            {
-        //                Player1BestHand.Add(c);
-        //            }
-        //            FlushCounter += 1;
-        //        }
-        //    }
-
-        //    Debug.Log("Number of " + suit + " = " + FlushCounter);
-        //    if (FlushCounter >= 5)
-        //    {
-        //        Debug.Log("have flush");
-
-        //        break;
-        //    }
-        //    else if (FlushCounter >= 3)
-        //    {
-        //        Player1BestHand.Clear();
-        //        break;
-        //    }
-        //    else
-        //    {
-        //        Player1BestHand.Clear();
-        //    }
-        //}
     }
 
+    //needs to be reworked to be list the flush counters// all strighter need to go in their own lists
     public List<Card> FindStraight( List<Card> straight)
     {
+        bool ace1 = true;
+        bool ace2 = true;
+        bool ace3 = true;
+        bool ace4 = true;
         int straightCounter = 1;
-
         straight.Add(Board[0]);
 
-        for (int x = 1; x < Board.Count; x++)
+        for (int x = 0; x < Board.Count - 1; x++)
         {
             //new cards for the straight
-            if((int)Board[x].value == (int)Board[x - 1].value + 1)
+            //Debug.Log("            //Debug.Log("Board[x].value = " + Board[x].value + " " + Board[x].suit);
+            //Debug.Log("Board[x + 1].value = " + Board[x + 1].value + " Board[x + 1].suit = " + Board[x + 1].suit);x = " + x);
+
+            //Debug.Log("staightcounter = " + straightCounter);
+
+            if((int)Board[x].value == 0)
             {
+                if((int)Board[Board.Count - 1].value == 12 && ace1)
+                {
+                    ace1 = false;
+                    //Debug.Log("ace 1 ");
+                    straight.Insert(0, Board[Board.Count - 1]);
+                    straightCounter += 1;
+                }
+                if ((int)Board[Board.Count - 2].value == 12 && ace2)
+                {
+                    ace2 = false;
+                    //Debug.Log("ace 2 ");
+                    straight.Insert(0, Board[Board.Count - 2]);
+                    straightCounter += 1;
+                }
+                if ((int)Board[Board.Count - 3].value == 12 && ace3)
+                {
+                    ace3 = false;
+                    //Debug.Log("ace 3 ");
+                    straight.Insert(0, Board[Board.Count - 3]);
+                    straightCounter += 1;
+                }
+                if ((int)Board[Board.Count - 4].value == 12 && ace4)
+                {
+                    ace4 = false;
+                    //Debug.Log("ace 4 ");
+                    straight.Insert(0, Board[Board.Count - 4]);
+                    straightCounter += 1;
+                }
+            }
+
+            if ((int)Board[x].value + 1 == (int)Board[x + 1].value)
+            {
+                //Debug.Log("found next card");
                 straightCounter += 1;
-                straight.Add(Board[x]);
+                straight.Add(Board[x + 1]);
             }
             //same numbers are other card
-            if ((int)Board[x].value == (int)Board[x - 1].value)
+            else if ((int)Board[x].value == (int)Board[x + 1].value)
             {
-                straight.Add(Board[x]);
+                //Debug.Log("found same card");
+                straight.Add(Board[x + 1]);
             }
             //no straight yet
             else
             {
-                if(straightCounter >= 5)
+                //Debug.Log("else");
+                if (straightCounter >= 5)
                 {
+                    //can't be anymore straights so just stop looking
                     break;
+                    //Debug.Log("straigh counter at 5");
                 }
-                straightCounter = 0;
-                straight.Clear();
+                else
+                {
+                    //Debug.Log("clear straight counter");
+                    straightCounter = 0;
+                    straight.Clear();
+                    straight.Add(Board[x + 1]);
+                }
             }
         }
 
-        if(straightCounter >= 5)
+        //straight.Remove(new Card(Number.Ace, Suit.Spades));
+        //straight.Remove(new Card(Number.Ace, Suit.Spades));
+
+        //Debug.Log("straightCounter = " + straightCounter + " With " + straight.Count + " Cards");
+
+
+
+        //foreach(Card c in straight)
+        //{
+        //    Debug.Log(c.value + " " + c.suit);
+        //}
+
+        if (straight.Count >= 5)
         {
             Debug.Log("have straight");
+            foreach (Card c in straight)
+            {
+                Debug.Log(c.value + " " + c.suit);
+            }
         }
         return straight;
     }
 
-    public void findDuplicates()
+    public List<List<Card>> findDuplicates(List<List<Card>> Duplicates)
     {
-        List<int> NumberOfCards = new List<int>();
         List<Card> TypesOfCards = new List<Card>();
 
+        //always add first card
         TypesOfCards.Add(Board[0]);
 
-        int currentCount = 1;
-
-        for(int x = 1; x < Board.Count; x++)
+        for(int x = 0; x < Board.Count - 1; x++)
         {
-            if((int)Board[x].value == (int)Board[x - 1].value)
+            if ((int)Board[x].value == (int)Board[x + 1].value)
             {
-                currentCount += 1;
+                TypesOfCards.Add(Board[x + 1]);
             }
             else
             {
-                NumberOfCards.Add(currentCount);
-                TypesOfCards.Add(Board[x]);
-                currentCount = 1;
+                Duplicates.Add(TypesOfCards);
+                TypesOfCards = new List<Card>();
+                TypesOfCards.Add(Board[x + 1]);
             }
         }
-        NumberOfCards.Add(currentCount);
 
-        for( int x = 0; x < NumberOfCards.Count; x++)
-        {
-            Debug.Log("there are " + NumberOfCards[x] + " " + TypesOfCards[x].value);
-        }
+        //always add last list to list
+        Duplicates.Add(TypesOfCards);
 
+        return Duplicates;
     }
 
     public void bubblesort(List<Card> a)
@@ -463,20 +303,225 @@ public class HandTracker : MonoBehaviour {
         }
     }
 
+    public void NumberPlayers(int num)
+    {
+        //player cards
+        //card1
+        for (int x = 0; x < num; x++)
+        {
+            List<Card> currentPlayer = new List<Card>();
+
+            Card player1card1 = deck[Random.Range(0, deck.Count)];
+            deck.Remove(player1card1);
+            //load image 1
+            ImageNumber = (int)player1card1.value + (int)player1card1.suit * 13;
+            cardImage = Resources.Load(pathway + ImageNumber.ToString()) as GameObject;
+            prefab = Instantiate(cardimagetest);
+            prefab.GetComponent<SpriteRenderer>().sprite = cardImage.GetComponent<SpriteRenderer>().sprite;
+            prefab.transform.position = new Vector3(-12 + 3*x, -3, 0);
+             
+            //card2
+            Card player1card2 = deck[Random.Range(0, deck.Count)];
+            deck.Remove(player1card2);
+            //load image 2
+            ImageNumber = (int)player1card2.value + (int)player1card2.suit * 13;
+            cardImage = Resources.Load(pathway + ImageNumber.ToString()) as GameObject;
+            prefab = Instantiate(cardimagetest);
+            prefab.GetComponent<SpriteRenderer>().sprite = cardImage.GetComponent<SpriteRenderer>().sprite;
+            prefab.transform.position = new Vector3(-11 + 3*x, -3 , 0);
+
+            Debug.Log(player1card1.value + " " + player1card1.suit);
+            Debug.Log(player1card2.value + " " + player1card2.suit);
+
+            currentPlayer.Add(player1card1);
+            currentPlayer.Add(player1card2);
+
+            playerCards.Add(currentPlayer);
+        }
+    }
+
+    List<Card> BestHand(List<Card> flush, List<Card> straight, List<List<Card>> Duplicates)
+    {
+        //checks for flush and straight flush
+        if(flush.Count >= 5)
+        {
+            if(straight.Count >= 5)
+            {
+                List<Card> StraightFlush = new List<Card>();
+                foreach (Card c in flush)
+                {
+                    if (straight.Contains(c))
+                    {
+                        StraightFlush.Add(c);
+                    }
+                }
+                if(StraightFlush.Count >= 5)
+                {
+                    return StraightFlush;
+                }
+            }
+            return flush;
+        }
+        else if(straight.Count >= 5)
+        {
+            List<Card> sortedStraight = new List<Card>();
+            sortedStraight.Add(straight[0]);
+            for (int x = 0; x  < straight.Count - 1; x++)
+            {
+                if(straight[x].value == straight[x + 1].value)
+                {
+                    //nothing
+                }
+                else
+                {
+                    sortedStraight.Add(straight[x + 1]);
+                }
+            }
+            return sortedStraight;
+        }
+        else
+        {
+            List<Card> Cards4 = new List<Card>();
+
+            //for(int x = Duplicates.Count - 1; x >= 0; x--)
+            //{
+            //    foreach(Card c in Duplicates[x])
+            //    {
+            //        bestDups.Add(c);
+            //    }
+            //}
+
+            //check for 4 of a king
+            foreach(List<Card> listCards in Duplicates)
+            {
+                if (listCards.Count == 4)
+                {
+                    Cards4 = new List<Card>(listCards);
+                }
+            }
+
+            if(Cards4.Count == 4)
+            {
+                return Cards4;
+            }
+
+            List<Card> pair1 = new List<Card>();
+            List<Card> pair2 = new List<Card>();
+            List<Card> cards3 = new List<Card>();
+
+            //check for full house
+            foreach (List<Card> listCards in Duplicates)
+            {
+                if (listCards.Count == 3)
+                {
+                    cards3 = new List<Card>(listCards);
+                }
+            }
+
+            foreach (List<Card> listCards in Duplicates)
+            {
+                if (listCards.Count == 2)
+                {
+                    pair1 = new List<Card>(listCards);
+                }
+            }
+
+            if(cards3.Count == 3 && pair1.Count == 2)
+            {
+                cards3.AddRange(pair1);
+                return cards3;
+            }
+
+            if(cards3.Count == 3)
+            {
+                return cards3;
+            }
+
+            if (pair1.Count > 0)
+            {
+                foreach (List<Card> listCards in Duplicates)
+                {
+                    if (listCards.Count == 2 && listCards[0].value != pair1[0].value)
+                    {
+                        pair2 = new List<Card>(listCards);
+                    }
+                }
+            }
+
+            if (pair2.Count == 2)
+            {
+                pair1.AddRange(pair2);
+                return pair1;
+            }
+
+            if(pair1.Count == 2)
+            {
+                return pair1;
+            }
+
+            List<Card> highCard = new List<Card>();
+            highCard.Add(Duplicates[Duplicates.Count - 1][0]);
+            return highCard;
+        }
+    }
+
     public void WhatIsHand()
     {
-        List<Card> flush = new List<Card>();
-        List<Card> straight = new List<Card>();
+        List<Card> bestHand = new List<Card>();
 
-        Board.Add(Player1[0]);
-        Board.Add(Player1[1]);
+        foreach (List<Card> player in playerCards)
+        {
+            List<Card> flush = new List<Card>();
+            List<Card> straight = new List<Card>();
+            List<List<Card>> Duplicates = new List<List<Card>>();
 
-        bubblesort(Board);
+            Board.Add(player[0]);
+            Board.Add(player[1]);
 
 
-        FindFlush();
-        straight = FindStraight(straight);
-        findDuplicates();
+            bubblesort(Board);
+            //foreach(Card c in Board)
+            //{
+            //    Debug.Log(c.value + " " + c.suit);
+            //}
+
+            flush = FindFlush();
+            straight = FindStraight(straight);
+
+            //Debug.Log("flushes:");
+            //foreach ( Card c in flush)
+            //{
+            //    Debug.Log(c.value + " " + c.suit);
+            //}
+            //Debug.Log("straights:");
+            //foreach (Card c in straight)
+            //{
+            //    Debug.Log(c.value + " " + c.suit);
+            //}
+
+            Duplicates = findDuplicates(Duplicates);
+
+            //foreach (List<Card> dups in Duplicates)
+            //{
+            //    Debug.Log("cards number = " + dups.Count);
+            //    foreach (Card c in dups)
+            //    {
+            //        Debug.Log(c.value + " " + c.suit);
+            //    }
+            //}
+
+            bestHand = BestHand(flush, straight, Duplicates);
+
+            Debug.Log("Best Hand is =");
+            foreach (Card c in bestHand)
+            {
+                Debug.Log(c.value + " " + c.suit);
+            }
+
+            Board.Remove(player[0]);
+            Board.Remove(player[1]);
+
+        }
 
     }
 }
