@@ -1,10 +1,15 @@
 fileFormatVersion: 2
 guid: 7d4e32f7094e5854ea30d1f59b7bc3fb
-timeCreated: 1512517106
-licenseType: Free
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cardimagetest: {fileID: 1174968719128222, guid: 425f1402adef11b4ba3cff52357468a8,
+      type: 2}
+  - playerPrefab: {fileID: 1930007565974740, guid: 3736c29306b9dcf428edbdc5f87ea943,
+      type: 2}
+  - CommunityCards: {instanceID: 0}
+  - PlayerCards: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

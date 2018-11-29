@@ -2,6 +2,7 @@
 Thumbs.db
 ehthumbs.db
 
+
 # Folder config file
 Desktop.ini
 
@@ -38,6 +39,7 @@ $RECYCLE.BIN/
 .TemporaryItems
 .Trashes
 .VolumeIcon.icns
+Builds
 
 # Directories potentially created on remote AFP share
 .AppleDB
