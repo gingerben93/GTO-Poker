@@ -224,6 +224,23 @@ public class GameScript : MonoBehaviour {
             prefab.GetComponent<Image>().sprite = cardImage.GetComponent<SpriteRenderer>().sprite;
             prefab.name = newCard.value + " of " + newCard.suit;
         }
+
+        ////temp set of web requests
+        //HttpRequest.HttpRequestSingle.value1 = Board[0].value.ToString();
+        //HttpRequest.HttpRequestSingle.suit1 = Board[0].suit.ToString();
+        //HttpRequest.HttpRequestSingle.value2 = Board[1].value.ToString();
+        //HttpRequest.HttpRequestSingle.suit2 = Board[1].suit.ToString();
+        //HttpRequest.HttpRequestSingle.value3 = Board[2].value.ToString();
+        //HttpRequest.HttpRequestSingle.suit3 = Board[2].suit.ToString();
+        //HttpRequest.HttpRequestSingle.value4 = Board[3].value.ToString();
+        //HttpRequest.HttpRequestSingle.suit4 = Board[3].suit.ToString();
+        //HttpRequest.HttpRequestSingle.value5 = Board[4].value.ToString();
+        //HttpRequest.HttpRequestSingle.suit5 = Board[4].suit.ToString();
+        //HttpRequest.HttpRequestSingle.value6 = Board[5].value.ToString(); 
+        //HttpRequest.HttpRequestSingle.suit6 = Board[5].suit.ToString();
+        //HttpRequest.HttpRequestSingle.value7 = Board[6].value.ToString();
+        //HttpRequest.HttpRequestSingle.suit7 = Board[6].suit.ToString();
+
         return Board;
     }
 
