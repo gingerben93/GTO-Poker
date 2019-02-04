@@ -37,6 +37,16 @@ public class GetServerInfo : MonoBehaviour
     public GameObject PlayerMiddleText;
     public GameObject PlayerBottomText;
 
+    //Hoolder for Player cards
+    public List<GameObject> OpponentCardsHolder;
+    public GameObject OppenentTopCard1;
+    public GameObject OppenentMiddleCard1;
+    public GameObject OppenentMiddleCards2;
+    public GameObject OppenentBottomCards1;
+    public GameObject OppenentBottomCards2;
+    public GameObject OppenentBottomCards3;
+    public GameObject OppenentBottomCards4;
+
     //opponet text game objects
     public List<GameObject> OpponentTextHolder;
     public GameObject OpponentTopText;
@@ -50,18 +60,18 @@ public class GetServerInfo : MonoBehaviour
     public GameObject OpponentBottomCards;
 
     //holder for cards objects
-    public List<GameObject> OpponentCardsHolder;
-    public GameObject OppenentTopCard1;
-    public GameObject OppenentMiddleCard1;
-    public GameObject OppenentMiddleCards2;
-    public GameObject OppenentBottomCards1;
-    public GameObject OppenentBottomCards2;
-    public GameObject OppenentBottomCards3;
-    public GameObject OppenentBottomCards4;
+    public List<GameObject> PlayerCardsHolder;
+    public GameObject PlayerCard1;
+    public GameObject PlayerCard2;
+    public GameObject PlayerCard3;
+    public GameObject PlayerCard4;
+    public GameObject PlayerCard5;
+    public GameObject PlayerCard6;
+    public GameObject PlayerCard7;
 
     //global game info
     GameData GameInformation;
-    int currentPlayer = 0;
+    int currentPlayerIndex = 1;
 
     public enum Suit
     {
@@ -157,6 +167,16 @@ public class GetServerInfo : MonoBehaviour
         PlayerTextHolder.Add(PlayerMiddleText);
         PlayerTextHolder.Add(PlayerBottomText);
 
+        //add cards to Player holder
+        PlayerCardsHolder = new List<GameObject>();
+        PlayerCardsHolder.Add(PlayerCard1);
+        PlayerCardsHolder.Add(PlayerCard2);
+        PlayerCardsHolder.Add(PlayerCard3);
+        PlayerCardsHolder.Add(PlayerCard4);
+        PlayerCardsHolder.Add(PlayerCard5);
+        PlayerCardsHolder.Add(PlayerCard6);
+        PlayerCardsHolder.Add(PlayerCard7);
+
         //add player rows to holder
         OpponentRowHolder = new List<GameObject>();
         OpponentRowHolder.Add(OpponentTopCards);
@@ -215,7 +235,7 @@ public class GetServerInfo : MonoBehaviour
             }
 
             //after parse make cards
-            SpawnCardsInCenter(values, suits, 7);
+            PlayerStartCards(values, suits);
         }
     }
 
@@ -236,6 +256,17 @@ public class GetServerInfo : MonoBehaviour
         GameObject prefab = Instantiate(FreeCardPrefab, LocationToPlace);
         prefab.GetComponent<Image>().sprite = cardImage.GetComponent<SpriteRenderer>().sprite;
         prefab.name = (Number)(value - 2) + " of " + (Suit)suit;
+
+    }
+
+    void PlayerStartCards(List<int> values, List<int> suits)
+    {
+        for (int x = 0; x < PlayerCardsHolder.Count; x++)
+        {
+            int ImageNumber = values[x] - 2 + suits[x] * 13;
+            GameObject cardImage = Resources.Load(pathway + ImageNumber.ToString()) as GameObject;
+            PlayerCardsHolder[x].GetComponent<Image>().sprite = cardImage.GetComponent<SpriteRenderer>().sprite;
+        }
     }
 
     //get card info from row
@@ -393,29 +424,50 @@ public class GetServerInfo : MonoBehaviour
         }
 
         //place cards
+        SetOpponetCards(playerInfo);
+
+    }
+
+    public void SetOpponetCards(PlayerData playerInfo)
+    {
         for (int x = 0; x < OpponentCardsHolder.Count; x++)
         {
-            CreatSingleCard(playerInfo.player_card_values[x], playerInfo.player_card_suits[x], OpponentCardsHolder[x].transform);
+            int ImageNumber = playerInfo.player_card_values[x] - 2 + playerInfo.player_card_suits[x] * 13;
+            GameObject cardImage = Resources.Load(pathway + ImageNumber.ToString()) as GameObject;
+            OpponentCardsHolder[x].GetComponent<Image>().sprite = cardImage.GetComponent<SpriteRenderer>().sprite;
         }
     }
 
     public void CycleLeftPlayer()
     {
-        currentPlayer--;
-        if(currentPlayer == 0)
+        currentPlayerIndex = (currentPlayerIndex - 1) % GameInformation.playerData.Count;
+        if(currentPlayerIndex == 0)
         {
-            currentPlayer = GameInformation.playerData.Count - 1;
+            currentPlayerIndex = GameInformation.playerData.Count - 1;
         }
-        SetOpponentInformation(GameInformation.playerData[currentPlayer]);
+        SetOpponentInformation(GameInformation.playerData[currentPlayerIndex]);
     }
 
     public void CycleRightPlayer()
     {
-        currentPlayer++;
-        if (currentPlayer == GameInformation.playerData.Count - 1)
+        currentPlayerIndex = (currentPlayerIndex + 1) % GameInformation.playerData.Count;
+        if (currentPlayerIndex == 0)
         {
-            currentPlayer = 1;
+            currentPlayerIndex = 1;
         }
-        SetOpponentInformation(GameInformation.playerData[currentPlayer]);
+        SetOpponentInformation(GameInformation.playerData[currentPlayerIndex]);
+    }
+
+    //for resettting game
+    public void StartNewRound()
+    {
+        //set opponent cards to Null
+        for (int x = 0; x < OpponentCardsHolder.Count; x++)
+        {
+            OpponentCardsHolder[x].GetComponent<Image>().sprite = null;
+        }
+
+
+
     }
 }
