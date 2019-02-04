@@ -59,6 +59,10 @@ public class GetServerInfo : MonoBehaviour
     public GameObject OppenentBottomCards3;
     public GameObject OppenentBottomCards4;
 
+    //global game info
+    GameData GameInformation;
+    int currentPlayer = 0;
+
     public enum Suit
     {
         Spades,
@@ -110,36 +114,37 @@ public class GetServerInfo : MonoBehaviour
         }
     }
 
-    [System.Serializable]
-    public class CommunityCardsClass
+    public class CommunityCards
     {
-        public List<int> community_card_values;
-        public List<int> commuity_card_suits;
+        public List<int> community_card_values { get; set; }
+        public List<int> commuity_card_suits { get; set; }
     }
 
-    public class PlayerDataClass
+    public class PlayerData
     {
         public string player_name { get; set; }
         public List<int> player_card_values { get; set; }
         public List<int> player_card_suits { get; set; }
         public List<int> top_cards_values { get; set; }
         public List<int> top_cards_suits { get; set; }
-        public string top_cards_type { get; set; }
         public List<int> middle_cards_values { get; set; }
         public List<int> middle_cards_suits { get; set; }
-        public string middle_cards_type { get; set; }
         public List<int> bottom_cards_values { get; set; }
         public List<int> bottom_cards_suit { get; set; }
-        public string bottom_cards_type { get; set; }
+        public List<string> hand_types { get; set; }
         public List<string> list_win_lost { get; set; }
+    }
+
+    public class GameData
+    {
+        public CommunityCards communityCards { get; set; }
+        public List<PlayerData> playerData { get; set; }
     }
 
 
     // Use this for initialization
     private void Start()
     {
-
-
         //add player rows to holder
         PlayerRowHolder = new List<GameObject>();
         PlayerRowHolder.Add(PlayerTopCards);
@@ -178,23 +183,6 @@ public class GetServerInfo : MonoBehaviour
         StartCoroutine(GetFreeCards());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    void CheckStateFromServer()
-    {
-
-    }
-
-    public class MyClass
-    {
-        public string values;
-        public string suits;
-    }
-
     IEnumerator GetFreeCards()
     {
         //set reset cards button to active
@@ -229,7 +217,6 @@ public class GetServerInfo : MonoBehaviour
             //after parse make cards
             SpawnCardsInCenter(values, suits, 7);
         }
-
     }
 
     //create X number in center row; for player cards then community cards
@@ -241,6 +228,7 @@ public class GetServerInfo : MonoBehaviour
         }
     }
 
+    //create prefab for card
     void CreatSingleCard(int value, int suit, Transform LocationToPlace)
     {
         int ImageNumber = value - 2 + suit * 13;
@@ -250,6 +238,7 @@ public class GetServerInfo : MonoBehaviour
         prefab.name = (Number)(value - 2) + " of " + (Suit)suit;
     }
 
+    //get card info from row
     List<Card> getCardsFromRows(string rowName)
     {
         List<Card> temp = new List<Card>();
@@ -350,34 +339,16 @@ public class GetServerInfo : MonoBehaviour
 
         print(request.downloadHandler.text);
 
-        ////parse json string for values and suit list
-        string[] words = request.downloadHandler.text.Split('{', '}');
+        //deserialize json to c# class
+        GameInformation = JsonConvert.DeserializeObject<GameData>(request.downloadHandler.text);
 
         //set community cards
-        var communityCards = JsonConvert.DeserializeObject<CommunityCardsClass>("{" + words[1] + "}");
-        List<PlayerDataClass> allPlayers = new List<PlayerDataClass>();
-
-        //get all players; players start at index 3 and come every other after
-        for (int x = 3; x < words.Length; x += 2)
-        {
-            try
-            {
-                allPlayers.Add(JsonConvert.DeserializeObject<PlayerDataClass>("{" + words[x] + "}"));
-            }
-            catch
-            {
-                print("error");
-            }
-        }
-
-        //set community cards
-        SpawnCardsInCenter(communityCards.community_card_values, communityCards.commuity_card_suits, 5);
+        SpawnCardsInCenter(GameInformation.communityCards.community_card_values, GameInformation.communityCards.commuity_card_suits, 5);
 
         //change color for win or lose
-        //topcards
         for(int i = 0; i < PlayerRowHolder.Count; i++)
         {
-            if (allPlayers[0].list_win_lost[i] == "win")
+            if (GameInformation.playerData[0].list_win_lost[i] == "win")
             {
                 PlayerRowHolder[i].GetComponent<Image>().color = Color.green;
             }
@@ -386,26 +357,29 @@ public class GetServerInfo : MonoBehaviour
                 PlayerRowHolder[i].GetComponent<Image>().color = Color.red;
             }
         }
-        
-        //set top text
-        PlayerTopText.GetComponent<Text>().text = allPlayers[0].top_cards_type; 
-        PlayerMiddleText.GetComponent<Text>().text = allPlayers[0].middle_cards_type;
-        PlayerBottomText.GetComponent<Text>().text = allPlayers[0].bottom_cards_type;
+
+        //set text
+        for (int i = 0; i < PlayerTextHolder.Count; i++)
+        {
+            PlayerTextHolder[i].GetComponent<Text>().text = GameInformation.playerData[0].hand_types[i];
+        }
 
         //set opponent
-        print(allPlayers.Count);
-        SetOpponentCInformation(allPlayers[1]);
+        SetOpponentInformation(GameInformation.playerData[1]);
 
         ////turn on next hand button
         NextHandButton.SetActive(true);
     }
 
-    void SetOpponentCInformation(PlayerDataClass playerInfo)
+    void SetOpponentInformation(PlayerData playerInfo)
     {
-        OpponentTopText.GetComponent<Text>().text = playerInfo.top_cards_type;
-        OpponentMiddleText.GetComponent<Text>().text = playerInfo.middle_cards_type;
-        OpponentBottomText.GetComponent<Text>().text = playerInfo.bottom_cards_type;
+        //set text
+        for (int i = 0; i < OpponentTextHolder.Count; i++)
+        {
+            OpponentTextHolder[i].GetComponent<Text>().text = playerInfo.hand_types[i];
+        }
 
+        //change color
         for (int i = 0; i < OpponentRowHolder.Count; i++)
         {
             if (playerInfo.list_win_lost[i] == "win")
@@ -418,10 +392,30 @@ public class GetServerInfo : MonoBehaviour
             }
         }
 
+        //place cards
         for (int x = 0; x < OpponentCardsHolder.Count; x++)
         {
             CreatSingleCard(playerInfo.player_card_values[x], playerInfo.player_card_suits[x], OpponentCardsHolder[x].transform);
         }
+    }
 
+    public void CycleLeftPlayer()
+    {
+        currentPlayer--;
+        if(currentPlayer == 0)
+        {
+            currentPlayer = GameInformation.playerData.Count - 1;
+        }
+        SetOpponentInformation(GameInformation.playerData[currentPlayer]);
+    }
+
+    public void CycleRightPlayer()
+    {
+        currentPlayer++;
+        if (currentPlayer == GameInformation.playerData.Count - 1)
+        {
+            currentPlayer = 1;
+        }
+        SetOpponentInformation(GameInformation.playerData[currentPlayer]);
     }
 }
