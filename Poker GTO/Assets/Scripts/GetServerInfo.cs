@@ -37,7 +37,7 @@ public class GetServerInfo : MonoBehaviour
     public GameObject PlayerMiddleText;
     public GameObject PlayerBottomText;
 
-    //Hoolder for Player cards
+    //Holder for Player cards
     public List<GameObject> OpponentCardsHolder;
     public GameObject OppenentTopCard1;
     public GameObject OppenentMiddleCard1;
@@ -59,6 +59,9 @@ public class GetServerInfo : MonoBehaviour
     public GameObject OpponentMiddleCards;
     public GameObject OpponentBottomCards;
 
+    //Opponent name
+    public GameObject OpponentName;
+
     //holder for cards objects
     public List<GameObject> PlayerCardsHolder;
     public GameObject PlayerCard1;
@@ -68,6 +71,14 @@ public class GetServerInfo : MonoBehaviour
     public GameObject PlayerCard5;
     public GameObject PlayerCard6;
     public GameObject PlayerCard7;
+
+    //holder for cards objects
+    public List<GameObject> CommunityCardsHolder;
+    public GameObject CommunityCard1;
+    public GameObject CommunityCard2;
+    public GameObject CommunityCard3;
+    public GameObject CommunityCard4;
+    public GameObject CommunityCard5;
 
     //global game info
     GameData GameInformation;
@@ -199,6 +210,14 @@ public class GetServerInfo : MonoBehaviour
         OpponentCardsHolder.Add(OppenentBottomCards3);
         OpponentCardsHolder.Add(OppenentBottomCards4);
 
+        //add community cards to holder
+        CommunityCardsHolder = new List<GameObject>();
+        CommunityCardsHolder.Add(CommunityCard1);
+        CommunityCardsHolder.Add(CommunityCard2);
+        CommunityCardsHolder.Add(CommunityCard3);
+        CommunityCardsHolder.Add(CommunityCard4);
+        CommunityCardsHolder.Add(CommunityCard5);
+
         //start game
         StartCoroutine(GetFreeCards());
     }
@@ -239,25 +258,25 @@ public class GetServerInfo : MonoBehaviour
         }
     }
 
-    //create X number in center row; for player cards then community cards
-    void SpawnCardsInCenter(List<int> values, List<int> suits, int NumberCards)
-    {
-        for (int x = 0; x < NumberCards; x++)
-        {
-            CreatSingleCard(values[x], suits[x], FreeCards.transform);
-        }
-    }
+    ////create X number in center row; for player cards then community cards
+    //void SpawnCardsInCenter(List<int> values, List<int> suits, int NumberCards)
+    //{
+    //    for (int x = 0; x < NumberCards; x++)
+    //    {
+    //        CreatSingleCard(values[x], suits[x], FreeCards.transform);
+    //    }
+    //}
 
-    //create prefab for card
-    void CreatSingleCard(int value, int suit, Transform LocationToPlace)
-    {
-        int ImageNumber = value - 2 + suit * 13;
-        GameObject cardImage = Resources.Load(pathway + ImageNumber.ToString()) as GameObject;
-        GameObject prefab = Instantiate(FreeCardPrefab, LocationToPlace);
-        prefab.GetComponent<Image>().sprite = cardImage.GetComponent<SpriteRenderer>().sprite;
-        prefab.name = (Number)(value - 2) + " of " + (Suit)suit;
+    ////create prefab for card
+    //void CreatSingleCard(int value, int suit, Transform LocationToPlace)
+    //{
+    //    int ImageNumber = value - 2 + suit * 13;
+    //    GameObject cardImage = Resources.Load(pathway + ImageNumber.ToString()) as GameObject;
+    //    GameObject prefab = Instantiate(FreeCardPrefab, LocationToPlace);
+    //    prefab.GetComponent<Image>().sprite = cardImage.GetComponent<SpriteRenderer>().sprite;
+    //    prefab.name = (Number)(value - 2) + " of " + (Suit)suit;
 
-    }
+    //}
 
     void PlayerStartCards(List<int> values, List<int> suits)
     {
@@ -266,6 +285,18 @@ public class GetServerInfo : MonoBehaviour
             int ImageNumber = values[x] - 2 + suits[x] * 13;
             GameObject cardImage = Resources.Load(pathway + ImageNumber.ToString()) as GameObject;
             PlayerCardsHolder[x].GetComponent<Image>().sprite = cardImage.GetComponent<SpriteRenderer>().sprite;
+            PlayerCardsHolder[x].name = (Number)(values[x] - 2) + " of " + (Suit)suits[x];
+        }
+    }
+
+    void PlaceCommunityCards(List<int> values, List<int> suits)
+    {
+        for (int x = 0; x < CommunityCardsHolder.Count; x++)
+        {
+            CommunityCardsHolder[x].SetActive(true);
+            int ImageNumber = values[x] - 2 + suits[x] * 13;
+            GameObject cardImage = Resources.Load(pathway + ImageNumber.ToString()) as GameObject;
+            CommunityCardsHolder[x].GetComponent<Image>().sprite = cardImage.GetComponent<SpriteRenderer>().sprite;
         }
     }
 
@@ -374,12 +405,24 @@ public class GetServerInfo : MonoBehaviour
         GameInformation = JsonConvert.DeserializeObject<GameData>(request.downloadHandler.text);
 
         //set community cards
-        SpawnCardsInCenter(GameInformation.communityCards.community_card_values, GameInformation.communityCards.commuity_card_suits, 5);
+        PlaceCommunityCards(GameInformation.communityCards.community_card_values, GameInformation.communityCards.commuity_card_suits);
 
-        //change color for win or lose
-        for(int i = 0; i < PlayerRowHolder.Count; i++)
+        //set user/player info
+        SetPlayerInformation(GameInformation.playerData[0]);
+
+        //set opponent
+        SetOpponentInformation(GameInformation.playerData[1]);
+
+        //turn on next hand button
+        NextHandButton.SetActive(true);
+    }
+
+    void SetPlayerInformation(PlayerData playerInfo)
+    {
+        //change color for win or lose for player
+        for (int i = 0; i < PlayerRowHolder.Count; i++)
         {
-            if (GameInformation.playerData[0].list_win_lost[i] == "win")
+            if (playerInfo.list_win_lost[i] == "win")
             {
                 PlayerRowHolder[i].GetComponent<Image>().color = Color.green;
             }
@@ -389,28 +432,25 @@ public class GetServerInfo : MonoBehaviour
             }
         }
 
-        //set text
+        //set text for player
         for (int i = 0; i < PlayerTextHolder.Count; i++)
         {
-            PlayerTextHolder[i].GetComponent<Text>().text = GameInformation.playerData[0].hand_types[i];
+            PlayerTextHolder[i].GetComponent<Text>().text = playerInfo.hand_types[i];
         }
-
-        //set opponent
-        SetOpponentInformation(GameInformation.playerData[1]);
-
-        ////turn on next hand button
-        NextHandButton.SetActive(true);
     }
 
     void SetOpponentInformation(PlayerData playerInfo)
     {
-        //set text
+        //set opponent name
+        OpponentName.GetComponent<Text>().text = playerInfo.player_name;
+
+        //set text for opponent
         for (int i = 0; i < OpponentTextHolder.Count; i++)
         {
             OpponentTextHolder[i].GetComponent<Text>().text = playerInfo.hand_types[i];
         }
 
-        //change color
+        //change color for opponent
         for (int i = 0; i < OpponentRowHolder.Count; i++)
         {
             if (playerInfo.list_win_lost[i] == "win")
@@ -425,7 +465,6 @@ public class GetServerInfo : MonoBehaviour
 
         //place cards
         SetOpponetCards(playerInfo);
-
     }
 
     public void SetOpponetCards(PlayerData playerInfo)
@@ -438,6 +477,7 @@ public class GetServerInfo : MonoBehaviour
         }
     }
 
+    //get player at -1 index
     public void CycleLeftPlayer()
     {
         currentPlayerIndex = (currentPlayerIndex - 1) % GameInformation.playerData.Count;
@@ -448,6 +488,7 @@ public class GetServerInfo : MonoBehaviour
         SetOpponentInformation(GameInformation.playerData[currentPlayerIndex]);
     }
 
+    //get player at +1 index
     public void CycleRightPlayer()
     {
         currentPlayerIndex = (currentPlayerIndex + 1) % GameInformation.playerData.Count;
@@ -461,13 +502,62 @@ public class GetServerInfo : MonoBehaviour
     //for resettting game
     public void StartNewRound()
     {
+        //set submit button controller
+        PlayerController.PlayerControllerSingle.resetUsedCardsNumber();
+
+        //reset opponents
+        GameInformation = null;
+
+        //set opponent name
+        OpponentName.GetComponent<Text>().text = "";
+
+        //set community cards to non active and null
+        for (int x = 0; x < CommunityCardsHolder.Count; x++)
+        {
+            CommunityCardsHolder[x].GetComponent<Image>().sprite = null;
+            CommunityCardsHolder[x].SetActive(false);
+        }
+
+        //set player cards to null and location to freecards panel
+        for (int x = 0; x < PlayerCardsHolder.Count; x++)
+        {
+            PlayerCardsHolder[x].GetComponent<Image>().sprite = null;
+            PlayerCardsHolder[x].transform.SetParent(FreeCards.transform);
+        }
+
+        //change color for win or lose for player
+        for (int i = 0; i < PlayerRowHolder.Count; i++)
+        {
+            PlayerRowHolder[i].GetComponent<Image>().color = Color.white;
+        }
+
+        //set text for player
+        for (int i = 0; i < PlayerTextHolder.Count; i++)
+        {
+            PlayerTextHolder[i].GetComponent<Text>().text = "Place your Cards";
+        }
+
         //set opponent cards to Null
         for (int x = 0; x < OpponentCardsHolder.Count; x++)
         {
             OpponentCardsHolder[x].GetComponent<Image>().sprite = null;
         }
 
+        //set text for opponent
+        for (int i = 0; i < OpponentTextHolder.Count; i++)
+        {
+            OpponentTextHolder[i].GetComponent<Text>().text = "Waiting for Opponent";
+        }
 
+        //change color for opponent
+        for (int i = 0; i < OpponentRowHolder.Count; i++)
+        {
+            OpponentRowHolder[i].GetComponent<Image>().color = Color.white;
+        }
 
+        //set next hand button to off
+        NextHandButton.SetActive(false);
+
+        StartCoroutine(GetFreeCards());
     }
 }
