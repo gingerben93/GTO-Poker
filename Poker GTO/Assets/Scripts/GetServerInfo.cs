@@ -20,8 +20,10 @@ public class GetServerInfo : MonoBehaviour
     //canvas holders
     public GameObject FreeCards;
 
+    //canvas block cursor panel
+    public GameObject BlockCursorPanel;
+
     //unity buttons
-    public Text ResponseText;
     public GameObject ResetCardsButton;
     public GameObject NextHandButton;
 
@@ -135,10 +137,10 @@ public class GetServerInfo : MonoBehaviour
         }
     }
 
-    public class CommunityCards
+    public class CardsValuesSuits
     {
-        public List<int> community_card_values { get; set; }
-        public List<int> commuity_card_suits { get; set; }
+        public List<int> card_values { get; set; }
+        public List<int> card_suits { get; set; }
     }
 
     public class PlayerData
@@ -158,7 +160,7 @@ public class GetServerInfo : MonoBehaviour
 
     public class GameData
     {
-        public CommunityCards communityCards { get; set; }
+        public CardsValuesSuits communityCards { get; set; }
         public List<PlayerData> playerData { get; set; }
     }
 
@@ -222,6 +224,7 @@ public class GetServerInfo : MonoBehaviour
         StartCoroutine(GetFreeCards());
     }
 
+    //
     IEnumerator GetFreeCards()
     {
         //set reset cards button to active
@@ -235,26 +238,12 @@ public class GetServerInfo : MonoBehaviour
         }
         else
         {
-            //parse json string for values and suit list
-            string[] words = wwwRequest.downloadHandler.text.Split('[',']');
-            string valuesList = words[2];
-            string suitsList = words[4];
-            string[] valuesString = valuesList.Split(',');
-            string[] suitsString = suitsList.Split(',');
+            print(wwwRequest.downloadHandler.text);
 
-            List<int> values = new List<int>();
-            List<int> suits = new List<int>();
-            foreach (var c in valuesString)
-            {
-                values.Add(Int32.Parse(c));
-            }
-            foreach (var c in suitsString)
-            {
-                suits.Add(Int32.Parse(c));
-            }
+            //deserialize json to c# class
+            CardsValuesSuits PlayerCards = JsonConvert.DeserializeObject<CardsValuesSuits>(wwwRequest.downloadHandler.text);
 
-            //after parse make cards
-            PlayerStartCards(values, suits);
+            PlayerStartCards(PlayerCards.card_values, PlayerCards.card_suits);
         }
     }
 
@@ -391,8 +380,32 @@ public class GetServerInfo : MonoBehaviour
                             "\"middle\": {\"card1\": {\"value\": \"" + value2 + "\" ,\"suit\": \"" + suit2 + "\"},\"card2\": {\"value\": \"" + value3 + "\" ,\"suit\": \"" + suit3 + "\"}}," +
                             "\"Bottom\": {\"card1\": {\"value\": \"" + value4 + "\" ,\"suit\": \"" + suit4 + "\"},\"card2\": {\"value\": \"" + value5 + "\" ,\"suit\": \"" + suit5 + "\"},\"card3\": {\"value\": \"" + value6 + "\" ,\"suit\": \"" + suit6 + "\"},\"card4\": {\"value\": \"" + value7 + "\" ,\"suit\": \"" + suit7 + "\"}}}";
 
+        CardsValuesSuits test = new CardsValuesSuits();
+        test.card_values = new List<int>();
+        test.card_suits = new List<int>();
+
+        test.card_values.Add(Int32.Parse(value1));
+        test.card_values.Add(Int32.Parse(value2));
+        test.card_values.Add(Int32.Parse(value3));
+        test.card_values.Add(Int32.Parse(value4));
+        test.card_values.Add(Int32.Parse(value5));
+        test.card_values.Add(Int32.Parse(value6));
+        test.card_values.Add(Int32.Parse(value7));
+
+        test.card_suits.Add(Int32.Parse(suit1));
+        test.card_suits.Add(Int32.Parse(suit2));
+        test.card_suits.Add(Int32.Parse(suit3));
+        test.card_suits.Add(Int32.Parse(suit4));
+        test.card_suits.Add(Int32.Parse(suit5));
+        test.card_suits.Add(Int32.Parse(suit6));
+        test.card_suits.Add(Int32.Parse(suit7));
+
+        var jsonStringTest = JsonConvert.SerializeObject(test);
+
+        print(jsonStringTest);
+
         var request = new UnityWebRequest(SENDCARDSTOSERVER, "POST");
-        byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonString);
+        byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonStringTest);
         request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
@@ -404,17 +417,26 @@ public class GetServerInfo : MonoBehaviour
         //deserialize json to c# class
         GameInformation = JsonConvert.DeserializeObject<GameData>(request.downloadHandler.text);
 
+        UseInformationFromServer(GameInformation);
+    }
+
+
+    void UseInformationFromServer(GameData currentData)
+    {
         //set community cards
-        PlaceCommunityCards(GameInformation.communityCards.community_card_values, GameInformation.communityCards.commuity_card_suits);
+        PlaceCommunityCards(currentData.communityCards.card_values, currentData.communityCards.card_suits);
 
         //set user/player info
-        SetPlayerInformation(GameInformation.playerData[0]);
+        SetPlayerInformation(currentData.playerData[0]);
 
         //set opponent
-        SetOpponentInformation(GameInformation.playerData[1]);
+        SetOpponentInformation(currentData.playerData[1]);
 
         //turn on next hand button
         NextHandButton.SetActive(true);
+
+        //turn block cursor panel on
+        BlockCursorPanel.SetActive(true);
     }
 
     void SetPlayerInformation(PlayerData playerInfo)
@@ -505,6 +527,9 @@ public class GetServerInfo : MonoBehaviour
         //set submit button controller
         PlayerController.PlayerControllerSingle.resetUsedCardsNumber();
 
+        //turn block cursor panel off
+        BlockCursorPanel.SetActive(false);
+
         //reset opponents
         GameInformation = null;
 
@@ -558,6 +583,7 @@ public class GetServerInfo : MonoBehaviour
         //set next hand button to off
         NextHandButton.SetActive(false);
 
+        //set player cards to free cards panel and get new cards from server
         StartCoroutine(GetFreeCards());
     }
 }
