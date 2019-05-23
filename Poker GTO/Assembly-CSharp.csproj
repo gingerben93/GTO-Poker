@@ -61,13 +61,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\GetServerInfo.cs" />
-    <Compile Include="Assets\Scripts\ObjectScripts\CardScript.cs" />
-    <Compile Include="Assets\Scripts\ObjectScripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\ObjectScripts\SetParent.cs" />
-    <Compile Include="Assets\Scripts\OldTestScripts\GameScript.cs" />
-    <Compile Include="Assets\Scripts\OldTestScripts\HandTracker.cs" />
-    <Compile Include="Assets\Scripts\OldTestScripts\HttpRequest.cs" />
+    <Compile Include="Assets\Scripts\GameScene\GetServerInfo.cs" />
+    <Compile Include="Assets\Scripts\GameScene\ObjectScripts\CardScript.cs" />
+    <Compile Include="Assets\Scripts\GameScene\ObjectScripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\GameScene\ObjectScripts\SetParent.cs" />
+    <Compile Include="Assets\Scripts\GameScene\OldTestScripts\GameScript.cs" />
+    <Compile Include="Assets\Scripts\GameScene\OldTestScripts\HandTracker.cs" />
+    <Compile Include="Assets\Scripts\GameScene\OldTestScripts\HttpRequest.cs" />
+    <Compile Include="Assets\Scripts\LoginScene\Login.cs" />
     <None Include="Assets\JsonDotNet\link.xml" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/ginge/Documents/GitHub/GTO-Poker/Poker GTO/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
